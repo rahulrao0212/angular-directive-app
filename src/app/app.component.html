@@ -1,0 +1,74 @@
+<h2>Directives</h2>
+
+<br>
+<hr/>
+<h4>ng For Example:</h4>
+<div *ngFor="let i of names">{{i}}</div>
+
+<br>
+<hr/>
+<h4>ng Switch Example:</h4>
+Input string : <input type='text' [(ngModel)]="num" />
+<div [ngSwitch]="num">
+  <div *ngSwitchCase="'1'">One</div>
+  <div *ngSwitchCase="'2'">Two</div>
+  <div *ngSwitchCase="'3'">Three</div>
+  <div *ngSwitchCase="'4'">Four</div>
+  <div *ngSwitchCase="'5'">Five</div>
+  <div *ngSwitchDefault>This is Default</div>
+</div>
+
+<br>
+<hr/>
+<h4>ng Switch Example 1:</h4>
+<select [(ngModel)]="selectedValue">
+  <option *ngFor="let item of items;" [value]="item.name">{{item.name}}</option>
+</select>
+<div [ngSwitch]="selectedValue">
+  <div *ngSwitchCase="'One'">One is Selected</div>
+  <div *ngSwitchCase="'Two'">Two is Selected</div>
+  <div *ngSwitchCase="'Two'">Two Again used in another element</div>
+  <div *ngSwitchDefault>This is Default</div>
+</div>
+
+<br>
+<hr/>
+ 
+<h4>ng If Example:</h4>
+ 
+<div>
+  Show <input type="checkbox" [(ngModel)]="showMe" />
+</div>
+ 
+<h5>ngIf </h5>
+ 
+<p *ngIf="showMe">
+  ShowMe is checked
+</p>
+<p *ngIf="!showMe">
+  ShowMe is unchecked
+</p>
+ 
+<h5>ngIf Else</h5>
+ 
+<p *ngIf="showMe; else elseBlock1">
+  ShowMe is checked
+</p>
+ 
+<ng-template #elseBlock1>
+  <p>ShowMe is unchecked Using elseBlock</p>
+</ng-template>
+ 
+<h5>ngIf then else</h5>
+ 
+<p *ngIf="showMe; then thenBlock2 else elseBlock2">
+  This is not rendered
+</p>
+ 
+<ng-template #thenBlock2>
+  <p>ShowMe is checked Using thenblock</p>
+</ng-template>
+ 
+<ng-template #elseBlock2>
+  <p>ShowMe is unchecked Using elseBlock</p>
+</ng-template>
